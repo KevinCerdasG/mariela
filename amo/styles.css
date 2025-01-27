@@ -1,0 +1,118 @@
+/* Configuración básica */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del corazón */
+.heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Mensaje oculto */
+#message {
+    display: none; /* Oculto inicialmente */
+    position: absolute;
+    top: 2%;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+    animation: fadeIn 0.5s ease;
+    text-align: center;
+    width: 100%;
+}
+
+/* Corazón */
+.heart {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: #e63947;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    animation: heartbeat 1s infinite;
+}
+
+/* Mitades del corazón */
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #e63947;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -75px;
+    left: 0;
+}
+
+.heart::after {
+    left: 75px;
+    top: 0;
+}
+
+/* Interactividad: Cambia de tamaño y color al pasar el cursor */
+.heart:hover {
+    background-color: #ff6b81;
+}
+
+.heart:hover::before,
+.heart:hover::after {
+    background-color: #ff6b81;
+}
+
+/* Animación para el latido */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+/* Botón */
+button {
+    margin-top: 80px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #e63946;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6b81;
+}
+
+/* Animación para el mensaje */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
